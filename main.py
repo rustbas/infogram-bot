@@ -1,13 +1,22 @@
 import os
 
+from sys import stderr
+
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+
+import logging
+logging.basicConfig(level=logging.INFO, stream=stderr,
+                        format="%(asctime)s %(levelname)s %(message)s")
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 if not TELEGRAM_TOKEN:
     raise Exception("You need to provide telegram token. Set \'TELEGRAM_TOKEN\' variable.")
 
 async def get_chat_info(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+
+    user_name = update.message.chat.username
+    logging.info(f"User:{user_name} ran command \'getinfo\'")
 
     chat_id = update.message.chat.id
     chat_type = update.message.chat.type
@@ -31,6 +40,10 @@ Chat ID – "`{chat_id}`"
     await update.message.reply_text(reply_message, parse_mode='MarkdownV2')
 
 async def get_help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+
+    user_name = update.message.chat.username
+    logging.info(f"User:{user_name} ran command \'help\'")
+
     help_message = """
 This bot return chat info, that may be useful in different services \\(zabbix, uptime\\-kuma, etc\\)\\.
 

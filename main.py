@@ -1,7 +1,11 @@
+import os
+
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-from config import TOKEN
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+if not TELEGRAM_TOKEN:
+    raise Exception("You need to provide telegram token. Set \'TELEGRAM_TOKEN\' variable.")
 
 async def get_chat_info(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
@@ -36,7 +40,7 @@ Usage: `/getinfo`
     await update.message.reply_text(help_message, parse_mode='MarkdownV2')
 
 
-app = ApplicationBuilder().token(TOKEN).build()
+app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
 
 app.add_handler(CommandHandler("getinfo", get_chat_info))
 app.add_handler(CommandHandler("help", get_help))

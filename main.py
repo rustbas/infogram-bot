@@ -26,9 +26,20 @@ Chat ID – "`{chat_id}`"
 
     await update.message.reply_text(reply_message, parse_mode='MarkdownV2')
 
+async def get_help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    help_message = """
+This bot return chat info, that may be useful in different services \\(zabbix, uptime\\-kuma, etc\\)\\.
+
+Usage: `/getinfo`
+    """
+
+    await update.message.reply_text(help_message, parse_mode='MarkdownV2')
+
+
 app = ApplicationBuilder().token(TOKEN).build()
 
 app.add_handler(CommandHandler("getinfo", get_chat_info))
+app.add_handler(CommandHandler("help", get_help))
 
 app.run_polling()
 

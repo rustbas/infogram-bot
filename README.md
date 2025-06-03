@@ -1,4 +1,4 @@
 # Infogram Bot
 
-Простой бот, для быстрого определения метаданных чата, которые потом можно
-использовать в различных сервисах.
+Simple bot for fast identifying chat metadata, for further using it in diffirent
+services.

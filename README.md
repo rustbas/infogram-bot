@@ -3,7 +3,7 @@
 Simple bot for fast identifying chat metadata, for further using it in diffirent
 services.
 
-# How to start a bot
+## How to start a bot
 
 First of all, you need to get token from [botFather](https://t.me/BotFather). 
 You can register for it next commands:
@@ -12,13 +12,13 @@ You can register for it next commands:
 
 After that you need to start a bot.
 
-## Pull docker image from DockerHub
+### Pull docker image from DockerHub
 
 ```console
 foo@bar:~$ docker run --rm -d -e TELEGRAM_TOKEN=[YOUR TELEGRAM BOT TOKEN] wtukatyr/infogram-bot
 ```
 
-## Build docker locally
+### Build docker locally
 
 In root directory:
 
@@ -27,7 +27,7 @@ foo@bar:~/infogram-bot$ docker build -t infogram-bot .
 foo@bar:~/infogram-bot$ docker run --rm -d -e TELEGRAM_TOKEN=[YOUR TELEGRAM TOKEN] infogram-bot
 ```
 
-## Run python script
+### Run python script
 
 If you can't (or don't want to) run a docker container.
 
@@ -39,7 +39,7 @@ foo@bar:~/infogram-bot$ export TELEGRAM_TOKEN=[YOUR TELEGRAM BOT TOKEN]
 foo@bar:~/infogram-bot$ python3 main.py
 ```
 
-# Usage
+## Usage
 
 1. Add your bot to the right chat.
 2. Run `/getinfo` command. It will return information, that you can use in

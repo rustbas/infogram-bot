@@ -1,7 +1,10 @@
 # Infogram Bot
 
-Simple bot for fast identifying chat metadata, for further using it in diffirent
-services.
+> [!WARNING]
+> Your username will be saved in the bot logs.
+
+Simple bot for fast identifying chat metadata, for further using it in
+different services (e.g. Zabbix, Jenkins, Github Actions, etc).
 
 ## How to start a bot
 
